@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
     if params[:search].present?
@@ -8,6 +11,7 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
   end
+
 
   def new
     @product = Product.new
@@ -42,9 +46,14 @@ class ProductsController < ApplicationController
       @product.destroy
       redirect_to products_path, notice: 'Product was successfully destroyed.'
     end
+
+  def show
   end
 
   private
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def set_restaurant
     @product = Product.find(params[:id])
