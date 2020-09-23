@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
       @product.destroy
       redirect_to products_path, notice: 'Product was successfully destroyed.'
     end
+  end
 
   def show
   end
