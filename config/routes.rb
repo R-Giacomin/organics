@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
 
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  
   resources :products do
     resources :cart_products, only: [:create]
   end
@@ -13,4 +9,5 @@ Rails.application.routes.draw do
   resources :cart_products, only: [:destroy]
   resources :carts, only: [:show]
 
+  root to: 'products#index'
 end
