@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Produtor name:</strong>
+  <%= @product.user.name %>
+</p>
+<p>
+  <strong>Produtor address:</strong>
+  <%= @product.user.address %>
+</p>
+
+<%= link_to 'Back', products_path %>
+
