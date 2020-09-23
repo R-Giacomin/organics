@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= @user.email %> Cart</h1>
+  <table class="table table-borered">
+    <tbody>
+      <thead>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+      </thead>
+      <% @cart.cart_products.each do |cart_product| %>
+        <tr>
+          <td><%= cart_product.product.name %></td> <!-- # To improve -->
+          <td><%= cart_product.quantity %></td>
+          <td><%= cart_product.price %></td>
+          <td>
+            <%= link_to cart_product_path(cart_product), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-trash destroy_cart_product"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

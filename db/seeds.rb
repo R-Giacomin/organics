@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 puts 'cleaning up database...' 
 Product.destroy_all
 
@@ -34,4 +35,19 @@ price:"7,80" , quantity:20 , unit_measurement:"pacote 500g", user_id: 5)
 # Product.create(name: "alface", description: , price:"4,50" , quantity: , unit_measurement:"maço" , user_id: )
 
 puts 'seed finished'
+
+# product = Product.new(name: "banana maça", description:"Kg", price: 6, quantity: 3 )
+# product.user = User.find(1)
+# product.save
+# product = Product.new(name: "banana caturra", description:"Kg", price: 5, quantity: 5 )
+# product.user = User.find(1)
+# product.save
+# product = Product.new(name: "maça gala", description:"Kg", price: 5, quantity: 5 )
+# product.user = User.find(1)
+# product.save
+# product = Product.new(name: "maça julieta", description:"Kg", price: 5, quantity: 5 )
+# product.user = User.find(1)
+# product.save
+
+
 
