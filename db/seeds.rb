@@ -27,11 +27,18 @@ prod_h = [
   }
 ]
 
+cart_h = [{ status: 'aberto' }, { status: 'fechado' }, { status: 'cancelado' }]
+
 User.all.each do |usr|
   prod_h.each do |p|
     h_seed = p
     h_seed[:user_id] = usr.id
     Product.create!(h_seed)
+  end
+  cart_h.each do |c|
+    h_seed = c
+    h_seed[:user_id] = usr.id
+    Cart.create!(h_seed)
   end
 end
 
