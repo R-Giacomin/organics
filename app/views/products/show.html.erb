@@ -1,32 +1,33 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Produto:</strong>
   <%= @product.name %>
 </p>
 <p>
-  <strong>Name:</strong>
+  <strong>Descrição:</strong>
   <%= @product.description %>
 </p>
 <p>
-  <strong>Price:</strong>
+  <strong>Preço:</strong>
   <%= @product.price %>
 </p>
 
 <p>
-  <strong>Produtor name:</strong>
+  <strong>Nome do Produtor:</strong>
   <%= @product.user.name %>
 </p>
 <p>
-  <strong>Produtor address:</strong>
+  <strong>Endereço:</strong>
   <%= @product.user.address %>
 </p>
 
-<%= link_to 'Back', products_path, class: "btn btn-outline-secondary" %>
+<%= link_to 'Back', products_path, class: "btn btn-warning" %>
 
 <% if @product.user == current_user%>
-<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-outline-secondary" %>
-<%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-outline-secondary" %>
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
+<%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
 <% else %>
 <% end %>
-
+</div>
