@@ -23,6 +23,7 @@
 </p>
 
 <%= link_to 'Back', products_path, class: "btn btn-outline-secondary" %>
+<%= link_to 'Buy', product_orders_path(@product.id), method: :post, class: "btn btn-outline-secondary" %>
 
 <% if @product.user == current_user%>
 <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-outline-secondary" %>
