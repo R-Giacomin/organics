@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :products
 
   resources :products do
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :cart_products, only: [:destroy]
   resources :carts, only: [:show]
-  resources :orders, only: [:show, :destroy]
+  resources :orders, only: [:index, :show, :destroy]
 
   root to: 'products#index'
 end

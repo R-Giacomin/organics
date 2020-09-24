@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @user = current_user
+    @orders = @user.orders
+  end
 
   def create
     @product = Product.find(params[:product_id])
