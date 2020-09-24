@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,13 +23,14 @@
   <%= @product.user.address %>
 </p>
 
-<%= link_to 'Back', products_path, class: "btn btn-outline-secondary" %>
-<%= link_to 'Buy', product_orders_path(@product.id), method: :post, class: "btn btn-outline-secondary" %>
 
+<%= link_to 'Back', products_path, class: "btn btn-warning" %>
+<%= link_to 'Buy', product_orders_path(@product.id), method: :post, class: "btn btn-warning" %>
 <% if @product.user == current_user%>
-  <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-outline-secondary" %>
-  <%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-outline-secondary" %>
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
+<%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
+
 <% else %>
   <%= link_to 'Adicionar no Carrinho', product_cart_products_path(@product), class: "btn btn-outline-secondary" %>
 <% end %>
-
+</div>
