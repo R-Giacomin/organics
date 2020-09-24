@@ -1,32 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @product.description %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Produtor name:</strong>
-  <%= @product.user.name %>
-</p>
-<p>
-  <strong>Produtor address:</strong>
-  <%= @product.user.address %>
-</p>
+  <p>
+    <strong>Produto:</strong>
+    <%= @product.name %>
+  </p>
+  <p>
+    <strong>Descrição:</strong>
+    <%= @product.description %>
+  </p>
+  <p>
+    <strong>Preço:</strong>
+    <%= @product.price %>
+  </p>
 
-<%= link_to 'Back', products_path, class: "btn btn-outline-secondary" %>
+  <p>
+    <strong>Nome do Produtor:</strong>
+    <%= @product.user.name %>
+  </p>
+  <p>
+    <strong>Endereço:</strong>
+    <%= @product.user.address %>
+  </p>
 
-<% if @product.user == current_user%>
-<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-outline-secondary" %>
-<%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-outline-secondary" %>
-<% else %>
-<% end %>
+  <%= link_to 'Back', products_path, class: "btn btn-warning" %>
 
+
+  <% if @product.user == current_user%>
+    <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
+    <%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
+  <% else %>
+    <%= link_to 'Buy', product_orders_path(@product.id), method: :post, class: "btn btn-warning" %>
+  <% end %>
+</div>
