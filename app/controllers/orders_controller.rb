@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @user = current_user
+    @orders = @user.orders
+  end
 
   def create
     @product = Product.find(params[:product_id])
@@ -7,13 +11,13 @@ class OrdersController < ApplicationController
     @order.product = @product
     @order.user = @user
     if @order.save
-      redirect_to products_path
+      redirect_to orders_path
     end
   end
 
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to products_path
+    redirect_to orders_path
   end
 end

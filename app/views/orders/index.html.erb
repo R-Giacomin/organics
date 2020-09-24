@@ -1,0 +1,25 @@
+<div class="container">
+<h1>Orders from <%= @user.name %> </h1>
+  <table class="table table-borered">
+    <tbody>
+      <thead>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Price</th>
+      </thead>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.product.name %></td> <!-- # To improve -->
+          <td><%= order.product.description %></td>
+          <td><%= order.product.price %></td>
+          <td>
+            <%= link_to order_path(order), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-trash destroy_cart_product"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
