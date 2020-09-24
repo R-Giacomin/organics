@@ -41,6 +41,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 # To enable us hosting pictures in the cloud
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'cloudinary', '~> 1.16.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
