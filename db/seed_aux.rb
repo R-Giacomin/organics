@@ -1,6 +1,6 @@
-def feed_user
+def feed_user(qde_users)
   file = './db/pessoa.json'
-  pessoas = JSON.parse(File.open(file).read).sample(12)
+  pessoas = JSON.parse(File.open(file).read).sample(qde_users)
   category = ['Comprador(a)', 'Produtor(a)', 'Comprador(a)', 'Comprador(a)']
 
   pessoas.each do |pessoa|
