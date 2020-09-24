@@ -40,4 +40,8 @@ Cart.all.each do |cart|
   end
 end
 
+Order.create(user: User.first, product: Product.first)
+
 puts 'seed finished'
+
+
