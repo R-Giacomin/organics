@@ -16,7 +16,7 @@ Cart.destroy_all
 User.destroy_all
 
 puts 'Seeding users...'
-feed_user(12)
+feed_user(20)
 
 puts 'Seeding products...'
 User.all.each do |usr|
