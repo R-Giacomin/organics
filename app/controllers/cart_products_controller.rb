@@ -5,16 +5,20 @@ class CartProductsController < ApplicationController
     @cart_product = CartProduct.new(cart_product_params)
     @cart_product.product = @cart_product
     @cart_product.save
-    # if @cart_product.save 
-    #     redirect_to products_path(@product) 
-    # else 
-    #     render 'products/show' 
-    # end 
+    # if @cart_product.save
+    #     redirect_to products_path(@product)
+    # else
+    #     render 'products/show'
+    # end
+  end
+
+  def show
+    @order = Order.find(params[:id])
   end
 
   def destroy
-    @cart_product = CartProduct.find(params[:id]) 
-    @cart_product.destroy 
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.destroy
     redirect_to cart_path(@cart_product.product)
   end
 
@@ -25,5 +29,5 @@ class CartProductsController < ApplicationController
   def cart_product_params
     params.require(:cart_product).permit(:quantity, :cart_id, :products_id)
   end
-  
+
 end
