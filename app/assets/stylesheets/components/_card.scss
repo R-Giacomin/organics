@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
 }
 
 .card-product > img {
@@ -20,6 +21,12 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
+}
+
+.card-trip .productor {
+  font-size: 5;
+  font-weight: bold;
+  // text-align: right
 }
 
 
@@ -48,6 +55,7 @@
   background: black;
   opacity: 0;
 }
+
 .card-link:hover {
   opacity: 0.1;
 }
@@ -55,3 +63,4 @@
 #card-product-pricing {
   font-weight: lighter;
 }
+

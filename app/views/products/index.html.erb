@@ -14,14 +14,12 @@
   <% end %>
 </div>
 <br>
-<br>
-
-  <br>
 
 <div class="container">
   <div class="row">
   <% @products.each do |product| %>
   <div class="col-12 col-md-6 col-lg-3">
+
 
 <div class="card-product">
   <%= link_to "", product_path(product), class: 'card-link' %>
@@ -35,6 +33,7 @@
     <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
   </div>
 </div>
+
 
 </div>
 <% end %>
