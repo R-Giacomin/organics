@@ -34,14 +34,13 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
-# Gemfile to devise
-gem 'devise'
 # dotenv-rails to protect secret keys!!!
 gem 'dotenv-rails', groups: [:development, :test]
 # To enable us hosting pictures in the cloud
 gem 'cloudinary', '~> 1.16.0'
-
-gem 'cloudinary', '~> 1.16.0'
+# gem to obtain coordinates from the address.  Need to run
+# rails generate geocoder:config in the terminal.
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
