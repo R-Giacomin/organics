@@ -1,3 +1,12 @@
-<h1>Novo Produto</h1>
+<div class="container">
+<div class="edit-page text-center">
+  <h1>Cadastre seu Produto</h1>
+</div>
 <%= render 'form', product: @product %>
-<%= link_to 'Back', products_path, class:'btn btn-warning'%>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+    <%= link_to 'Back', products_path, class: "btn btn-warning ml-2" %>
+    </div>
+</div>
+</div>
