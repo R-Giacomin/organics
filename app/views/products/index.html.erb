@@ -14,50 +14,25 @@
   <% end %>
 </div>
 <br>
-<br>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Preço</th>
-      <th>Productor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td><%= product.name %></td>
-          <td><%= product.description %></td>
-          <td><%= product.price %></td>
-          <td><%= product.user.name %></td>
-          <td><%= link_to 'Show', product %></td>
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
 <div class="container">
   <div class="row">
 <% @products.each do |product| %>
 <div class="col-12 col-md-6 col-lg-3">
 
-<div class="card-trip">
-  <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= product.name %></h2>
-      <p><%= product.description %></p>
+  <div class="card-trip">
+    <% img = product.photo.attached? ? "#{product.photo.key}" : 'https://www.flaticon.com/svg/static/icons/svg/706/706133.svg' %>
+    <%= cl_image_tag img, height: 300, width: 400, crop: :fill  %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= product.name %></h2>
+        <p><%= product.description %></p>
+        <p class="productor"><%= "produtor: #{product.user.name}  " %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= "#{product.price}" %></h2>
+      <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
     </div>
-    <h2 class="card-trip-pricing"><%= product.price %></h2>
-    <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
+    <%= link_to "", product, class: 'card-link' %>
   </div>
-  </div>
-
 </div>
 <% end %>
  </div>
