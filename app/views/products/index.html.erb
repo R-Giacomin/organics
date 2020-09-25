@@ -1,8 +1,10 @@
 <div class="banner" style="background-image: url('<%= image_path 'organic.jpg' %>')">
   <div class="banner-content">
     <h1>Fresh Organic Market</h1>
-    <p>Produtos orgânicos fresquinhos</p>
-
+    <%# <p>Produtos orgânicos fresquinhos</p> %>
+    <p>
+      <span id="banner-typed-text"></span>
+    </p>
   </div>
 </div>
 
@@ -14,25 +16,28 @@
   <% end %>
 </div>
 <br>
+
 <div class="container">
   <div class="row">
-<% @products.each do |product| %>
-<div class="col-12 col-md-6 col-lg-3">
+  <% @products.each do |product| %>
+  <div class="col-12 col-md-6 col-lg-3">
 
-  <div class="card-trip">
-    <% img = product.photo.attached? ? "#{product.photo.key}" : 'https://www.flaticon.com/svg/static/icons/svg/706/706133.svg' %>
-    <%= cl_image_tag img, height: 300, width: 400, crop: :fill  %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= product.name %></h2>
-        <p><%= product.description %></p>
-        <p class="productor"><%= "produtor: #{product.user.name}  " %></p>
-      </div>
-      <h2 class="card-trip-pricing"><%= "#{product.price}" %></h2>
-      <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
+
+<div class="card-product">
+  <%= link_to "", product_path(product), class: 'card-link' %>
+  <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-product-infos">
+    <div>
+      <h2><%= product.name %></h2>
+      <p><%= product.description %></p>
     </div>
-    <%= link_to "", product, class: 'card-link' %>
+    <h2 id="card-product-pricing"><small>R$ </small><%= (sprintf "%.2f", product.price).to_s.gsub('.', ',') %></h2>
+    <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
   </div>
 </div>
+
+
+</div>
 <% end %>
+ </div>
  </div>

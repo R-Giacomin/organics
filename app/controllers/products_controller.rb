@@ -47,6 +47,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @order = Order.new()
   end
 
   private
@@ -59,6 +60,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :quantity, :search, :photo)
+    params.require(:product).permit(:name, :description, :price, :price.to_s, :quantity, :search, :photo, :unit_measurement)
   end
 end
