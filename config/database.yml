@@ -26,8 +26,8 @@ default: &default
 development:
   <<: *default
   database: organics_development
-  username: organics
-  password: <%= ENV['ORGANICS_DATABASE_PASSWORD'] %>
+  # username: organics
+  # password: <%= ENV['ORGANICS_DATABASE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,8 +62,8 @@ development:
 test:
   <<: *default
   database: organics_test
-  username: organics
-  password: <%= ENV['ORGANICS_DATABASE_PASSWORD'] %>
+  # username: organics
+  # password: <%= ENV['ORGANICS_DATABASE_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -87,5 +87,5 @@ test:
 production:
   <<: *default
   database: organics_production
-  username: organics
-  password: <%= ENV['ORGANICS_DATABASE_PASSWORD'] %>
+  # username: organics
+  # password: <%= ENV['ORGANICS_DATABASE_PASSWORD'] %>
