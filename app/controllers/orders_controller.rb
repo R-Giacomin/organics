@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.product = @product
     @order.user = @user
+    @quantity = params[:quantity]
+    @order.quantity = @quantity
     if @order.save
       redirect_to orders_path
     end
