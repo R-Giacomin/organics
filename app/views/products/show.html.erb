@@ -3,7 +3,20 @@
   <div class="row mt-2">
     <div class="col">
       <p id="notice"><%= notice %></p>
-      
+
+      <hr>
+
+      <p>
+        <strong>Nome do Produtor:</strong>
+        <%= @product.user.name %>
+      </p>
+      <p>
+        <strong>Endereço:</strong>
+        <%= @product.user.address %>
+      </p>
+
+      <hr>
+
       <p>
         <strong>Produto:</strong>
         <%= @product.name %>
@@ -17,17 +30,11 @@
         <%= "#{@product.price} #{@product.unit_measurement}" %>
       </p>
 
+        <% if @product.user != current_user%>
         <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
         <%= f.input :quantity %>
+        <% end %>
 
-      <p>
-        <strong>Nome do Produtor:</strong>
-        <%= @product.user.name %>
-      </p>
-      <p>
-        <strong>Endereço:</strong>
-        <%= @product.user.address %>
-      </p>
 
         <%= link_to 'Back', products_path, class: "btn btn-warning" %>
 
