@@ -15,7 +15,7 @@
     <%= "#{@product.price} #{@product.unit_measurement}" %>
   </p>
 
-    <%= simple_form_for @product, url: product_orders_path(@product), method: :post do |f| %>
+    <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
     <%= f.input :quantity %>
 
 
