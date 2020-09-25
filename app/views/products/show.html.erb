@@ -1,9 +1,9 @@
-<!-- <div class="container"> -->
+
 <div class="container">
   <div class="row mt-2">
     <div class="col">
       <p id="notice"><%= notice %></p>
-
+      
       <p>
         <strong>Produto:</strong>
         <%= @product.name %>
@@ -13,9 +13,12 @@
         <%= @product.description %>
       </p>
       <p>
-        <strong>Preço:</strong>
-        <%= @product.price %>
+        <strong>Preço: R$ </strong>
+        <%= "#{@product.price} #{@product.unit_measurement}" %>
       </p>
+
+        <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
+        <%= f.input :quantity %>
 
       <p>
         <strong>Nome do Produtor:</strong>
@@ -26,15 +29,17 @@
         <%= @product.user.address %>
       </p>
 
-      <%= link_to 'Back', products_path, class: "btn btn-warning" %>
+        <%= link_to 'Back', products_path, class: "btn btn-warning" %>
 
 
-      <% if @product.user == current_user%>
-        <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
-        <%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
-      <% else %>
-        <%= link_to 'Buy', product_orders_path(@product.id), method: :post, class: "btn btn-warning" %>
-      <% end %>
+          <% if @product.user == current_user%>
+            <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
+            <%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
+          <% else %>
+            <%= f.submit 'Buy', class: "btn btn-warning" %>
+          <% end %>
+        <% end %>
+
     </div>
 
     <div class="col">
@@ -42,6 +47,5 @@
     </div>
   </div>
 </div>
-
 
 
