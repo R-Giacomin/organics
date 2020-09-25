@@ -18,7 +18,6 @@
     <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
     <%= f.input :quantity %>
 
-
   <p>
     <strong>Nome do Produtor:</strong>
     <%= @product.user.name %>
