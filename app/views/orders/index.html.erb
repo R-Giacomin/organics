@@ -1,13 +1,13 @@
 <div class="container">
-<h1>Orders from <%= @user.name %> </h1>
+<h1>Pedidos <%= @user.name.capitalize %> </h1>
   <table class="table table-borered">
     <tbody>
       <thead>
         <th>Item</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Unit measurement</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Unidade de Medida</th>
         <th>Total</th>
       </thead>
       <% total = 0 %>
