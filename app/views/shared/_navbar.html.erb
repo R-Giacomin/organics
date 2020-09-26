@@ -14,6 +14,15 @@
         <li class="nav-item active">
           <%= link_to "Home", products_path, class: "nav-link" %>
         </li>
+        <% if current_user.category == "Produtor(a)" %>
+        <li class="nav-item active">
+          <%= link_to "My products", my_products_path, class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item active">
+          <%= link_to "My orders", orders_path, class: "nav-link" %>
+        </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
