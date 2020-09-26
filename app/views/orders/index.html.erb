@@ -18,7 +18,8 @@
           <td class="table-number"><%= order.quantity %></td>
           <td class="table-number"><%= order.product.price %></td>
           <td><%= order.product.unit_measurement %></td>
-          <td class="table-number">R$ <%= order.product.price * order.quantity %></td>
+
+          <td class="table-number">R$ <%= (sprintf "%.2f", order.product.price * order.quantity).to_s.gsub('.', ',') %> </td>
           <% total += order.product.price * order.quantity %>
           <td>
             <%= link_to order_path(order), method: :delete, data: { confirm: 'Are you sure?' } do %>
@@ -31,7 +32,7 @@
      <tfoot>
     <tr>
       <th id="total" colspan="5"></th>
-      <td> R$ <%= total %> </td>
+      <td> R$ <%= (sprintf "%.2f", total).to_s.gsub('.', ',') %> </td>
     </tr>
    </tfoot>
   </table>
