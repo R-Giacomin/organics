@@ -8,6 +8,15 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    @markers = @products.map do |product|
+      next unless product.user.geocoded?
+
+      producer = product.user
+      {
+        lat: producer.latitude,
+        lng: producer.longitude
+      }
+    end
     @user = current_user
     @markers = @products.map do |product|
       next unless product.user.geocoded?
@@ -58,6 +67,15 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @markers = [current_user, @product.user].map do |user|
+      next unless user&.geocoded?
+
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
     @order = Order.new
   end
 
