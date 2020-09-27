@@ -18,6 +18,17 @@ class ProductsController < ApplicationController
       }
     end
     @user = current_user
+    @markers = @products.map do |product|
+      next unless product.user.geocoded?
+
+      { lat: product.user.latitude, lng: product.user.longitude }
+    end
+  end
+
+  def my_products
+    @user = current_user
+    @id = current_user.id
+    @products = Product.where(user_id: @id)
   end
 
   def new
@@ -65,6 +76,7 @@ class ProductsController < ApplicationController
         lng: user.longitude
       }
     end
+    @order = Order.new
   end
 
   private
@@ -77,6 +89,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :quantity, :search, :photo)
+    params.require(:product).permit(:name, :description, :price, :price.to_s, :quantity, :search, :photo, :unit_measurement)
   end
 end

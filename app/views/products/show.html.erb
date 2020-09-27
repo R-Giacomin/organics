@@ -1,36 +1,55 @@
 <div class="container">
+  <div class="row mt-2">
+    <div class="col">
+      <p id="notice"><%= notice %></p>
 
-  <p id="notice"><%= notice %></p>
+      <hr>
 
-  <p>
-    <strong>Produto:</strong>
-    <%= @product.name %>
-  </p>
-  <p>
-    <strong>Descrição:</strong>
-    <%= @product.description %>
-  </p>
-  <p>
-    <strong>Preço:</strong>
-    <%= @product.price %>
-  </p>
+      <p>
+        <strong>Nome do Produtor:</strong>
+        <%= @product.user.name %>
+      </p>
+      <p>
+        <strong>Endereço:</strong>
+        <%= @product.user.address %>
+      </p>
 
-  <p>
-    <strong>Nome do Produtor:</strong>
-    <%= @product.user.name %>
-  </p>
-  <p>
-    <strong>Endereço:</strong>
-    <%= @product.user.address %>
-  </p>
+      <hr>
 
-  <%= link_to 'Back', products_path, class: "btn btn-warning" %>
+      <p>
+        <strong>Produto:</strong>
+        <%= @product.name %>
+      </p>
+      <p>
+        <strong>Descrição:</strong>
+        <%= @product.description %>
+      </p>
+      <p>
+        <strong>Preço: R$ </strong>
+        <%= "#{@product.price} #{@product.unit_measurement}" %>
+      </p>
 
+        <% if @product.user != current_user%>
+          <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
+          <%= f.input :quantity %>
+          <%= link_to 'Back', products_path, class: "btn btn-warning" %>
+          <%= f.submit 'Buy', class: "btn btn-warning" %>
+          <% end %>
 
-  <% if @product.user == current_user%>
-    <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
-    <%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
-  <% else %>
-    <%= link_to 'Buy', product_orders_path(@product.id), method: :post, class: "btn btn-warning" %>
-  <% end %>
+        <% else %>
+
+        <%= link_to 'Back', products_path, class: "btn btn-warning" %>
+        <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %>
+        <%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you Sure?' }, class: "btn btn-warning" %>
+        <% end %>
+
+    </div>
+
+    <div class="col">
+      <% img = @product.photo.attached? ? @product.photo.key : "" %>
+      <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
+    </div>
+  </div>
 </div>
+
+

@@ -25,12 +25,11 @@
 
 <div class="card-product">
   <%= link_to "", product_path(product), class: 'card-link' %>
-  <% img = product.photo.attached? ? product.photo.key : "" %>
-  <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <div>
       <h2><%= product.name %></h2>
-      <p><%= product.description.split('').first(20).join.strip + "..." %></p>
+      <p><%= product.description %></p>
     </div>
     <h2 id="card-product-pricing"><small>R$ </small><%= (sprintf "%.2f", product.price).to_s.gsub('.', ',') %></h2>
     <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
@@ -42,3 +41,4 @@
 <% end %>
  </div>
  </div>
+

@@ -1,6 +1,15 @@
+.fake-navbar {
+  background-color: white;
+  height: 66px;
+}
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  // position: sticky;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 2;
 }
 
 .navbar-lewagon .navbar-collapse {

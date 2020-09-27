@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2020_09_25_184102) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "quantity"
+    t.float "price"
+    t.string "unit_measurement"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_184102) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "price"
+    t.float "price"
     t.float "quantity"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
