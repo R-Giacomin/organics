@@ -25,7 +25,8 @@
 
 <div class="card-product">
   <%= link_to "", product_path(product), class: 'card-link' %>
-  <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+  <% img = product.photo.attached? ? product.photo.key : "" %>
+  <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <div>
       <h2><%= product.name %></h2>

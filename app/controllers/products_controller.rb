@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
     @user = current_user
+    @markers = @products.map do |product|
+      next unless product.user.geocoded?
+
+      { lat: product.user.latitude, lng: product.user.longitude }
+    end
   end
 
   def my_products
@@ -53,7 +58,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @order = Order.new()
+    @order = Order.new
   end
 
   private
