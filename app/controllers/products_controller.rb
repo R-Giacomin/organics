@@ -11,6 +11,12 @@ class ProductsController < ApplicationController
     @user = current_user
   end
 
+  def my_products
+    @user = current_user
+    @id = current_user.id
+    @products = Product.where(user_id: @id)
+  end
+
   def new
     @product = Product.new
   end
