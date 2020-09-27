@@ -5,10 +5,10 @@
     <tbody>
       <thead>
         <th>Item</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Unit measurement</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Unidade de medida</th>
         <th>Total</th>
       </thead>
       <% total = 0 %>
@@ -37,7 +37,7 @@
     </tr>
    </tfoot>
   </table>
-  <%= link_to 'Add more itens', products_path, class: "btn btn-warning" %>
-  <%= link_to 'Purchase', products_path, data: { confirm: 'Thank you, please wait for the order confirmation by the seller' }, class: "btn btn-warning" %>
+  <%= link_to 'Escolher mais produtos', products_path, class: "btn btn-warning" %>
+  <%= link_to 'Comprar', products_path, data: { confirm: 'Obrigada! Em até duas horas o vendedor encaminhará um email com a confirmação da compra e orientação de entrega.' }, class: "btn btn-warning" %>
 </div>
 
