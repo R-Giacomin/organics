@@ -1,18 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'json'
 require_relative 'seed_aux'
 
 puts 'cleaning up database...'
 
 CartProduct.destroy_all
-Product.destroy_all
 Cart.destroy_all
+Order.destroy_all
+Product.destroy_all
 User.destroy_all
 
 puts 'Seeding users...'
@@ -27,11 +21,13 @@ end
 
 puts 'Seeding carts...'
 User.all.each do |usr|
-  if usr.category === 'Comprador(a)'
-    feed_cart(usr)
-  end
+  feed_cart(usr) if usr.category === 'Comprador(a)'
 end
 
+puts 'Seeding orders...'
+User.all.each do |usr|
+  feed_cart(usr)
+end
 
 puts 'Seeding cart_products...'
 Cart.all.each do |cart|
@@ -43,5 +39,3 @@ end
 Order.create(user: User.first, product: Product.first)
 
 puts 'seed finished'
-
-

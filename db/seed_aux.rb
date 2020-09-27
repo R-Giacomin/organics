@@ -39,6 +39,13 @@ def feed_cart(usr)
   end
 end
 
+def feed_order(usr)
+  2.times do
+    h_seed[:user_id] = usr.id
+    Cart.create!(h_seed)
+  end
+end
+
 def feed_cart_product(cart, product)
   h_seed = {
     quantity: (1..20).to_a.sample,
