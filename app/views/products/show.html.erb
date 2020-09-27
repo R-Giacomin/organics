@@ -3,7 +3,7 @@
   <div class="row mt-2">
     <div class="col">
       <p id="notice"><%= notice %></p>
-      
+
       <p>
         <strong>Produto:</strong>
         <%= @product.name %>
@@ -43,7 +43,8 @@
     </div>
 
     <div class="col">
-      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+      <% img = @product.photo.attached? ? @product.photo.key : "" %>
+      <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
 </div>
