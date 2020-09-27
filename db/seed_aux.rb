@@ -5,6 +5,9 @@ def feed_user(qde_users)
 
   pessoas.each do |pessoa|
     pessoa.transform_keys!(&:to_sym)
+    # geoObj = Geocoder.search(pessoa[:endereco])
+    # pessoa_lat = geoObj.first.data["lat"]
+    # pessoa_lon = geoObj.first.data["lon"]
     usr_h = {
       email: pessoa[:email], name: pessoa[:nome], category: category.sample,
       address: pessoa[:endereco], password: '123456' }
@@ -32,10 +35,17 @@ def feed_cart(usr)
   ]
   if usr.category === 'Comprador(a)'
     2.times do
-      h_seed = cart_h.sample
+      h_seed = { status: cart_h.sample }
       h_seed[:user_id] = usr.id
       Cart.create!(h_seed)
     end
+  end
+end
+
+def feed_order(usr)
+  2.times do
+    h_seed[:user_id] = usr.id
+    Cart.create!(h_seed)
   end
 end
 

@@ -11,8 +11,9 @@ require_relative 'seed_aux'
 puts 'cleaning up database...'
 
 CartProduct.destroy_all
-Product.destroy_all
 Cart.destroy_all
+Order.destroy_all
+Product.destroy_all
 User.destroy_all
 
 puts 'Seeding users...'
@@ -27,11 +28,13 @@ end
 
 puts 'Seeding carts...'
 User.all.each do |usr|
-  if usr.category === 'Comprador(a)'
-    feed_cart(usr)
-  end
+  feed_cart(usr) if usr.category === 'Comprador(a)'
 end
 
+puts 'Seeding orders...'
+User.all.each do |usr|
+  feed_cart(usr)
+end
 
 puts 'Seeding cart_products...'
 Cart.all.each do |cart|
