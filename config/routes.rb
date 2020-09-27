@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get 'my_products', to: 'products#my_products'
+
   resources :products
 
   resources :products do

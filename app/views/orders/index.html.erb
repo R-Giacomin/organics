@@ -1,41 +1,43 @@
 <div class="container">
-  <h1>Pedidos <%= @user.name.capitalize %> </h1>
-    <table class="table table-center">
-      <tbody class>
-        <thead>
-          <th>Item</th>
-          <th>Descrição</th>
-          <th>Quantidade</th>
-          <th>Preço</th>
-          <th>Unidade de Medida</th>
-          <th>Total</th>
-        </thead>
-        <% total = 0 %>
-        <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.product.name %></td> <!-- # To improve -->
-            <td><%= order.product.description %></td>
-            <td><%= order.quantity %></td>
-            <td><%= order.product.price %></td>
-            <td><%= order.product.unit_measurement %></td>
-            <td>R$ <%= order.product.price * order.quantity %></td>
-            <% total += order.product.price * order.quantity %>
-            <td>
-              <%= link_to order_path(order), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <i class="fa fa-trash destroy_cart_product"></i>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-          <tr>
-            <!-- <th scope="row">3</th> -->
-            <th id="total" colspan="5"></th>
-            <td> R$ <%= total %> </td>
-          </tr>
-      </tbody>
 
-    </table>
-    <%= link_to 'Add more itens', products_path, class: "btn btn-warning" %>
-    <%= link_to 'Purchase', products_path, data: { confirm: 'Thank you, please wait for the order confirmation by the seller' }, class: "btn btn-warning" %>
+ <h1>Pedidos <%= @user.name.capitalize %> </h1>
+  <table class="table table-center">
+    <tbody>
+      <thead>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Unit measurement</th>
+        <th>Total</th>
+      </thead>
+      <% total = 0 %>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.product.name %></td> <!-- # To improve -->
+          <td><%= order.product.description %></td>
+          <td class="table-number"><%= order.quantity %></td>
+          <td class="table-number"><%= order.product.price %></td>
+          <td><%= order.product.unit_measurement %></td>
+
+          <td class="table-number">R$ <%= (sprintf "%.2f", order.product.price * order.quantity).to_s.gsub('.', ',') %> </td>
+          <% total += order.product.price * order.quantity %>
+          <td>
+            <%= link_to order_path(order), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-trash destroy_cart_product"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+     <tfoot>
+    <tr>
+      <th id="total" colspan="5"></th>
+      <td> R$ <%= (sprintf "%.2f", total).to_s.gsub('.', ',') %> </td>
+    </tr>
+   </tfoot>
+  </table>
+  <%= link_to 'Add more itens', products_path, class: "btn btn-warning" %>
+  <%= link_to 'Purchase', products_path, data: { confirm: 'Thank you, please wait for the order confirmation by the seller' }, class: "btn btn-warning" %>
 </div>
 
