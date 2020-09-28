@@ -2,7 +2,7 @@
   <%= link_to products_path, class: "navbar-brand" do %>
     <%= image_tag "logo3.png" %>
     <% end %>
-    <%= link_to "Home", products_path, class: "navbar-nav mr-auto"%>
+    <%= link_to "Home", products_path, class: "navbar-nav mr-auto home"%>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,7 @@
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                    
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Meu perfil", edit_user_registration_path, class: "dropdown-item" %>
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
