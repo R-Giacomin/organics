@@ -43,8 +43,10 @@ document.addEventListener('turbolinks:load', () => {
 import 'mapbox-gl/dist/mapbox-gl.css';  // esta importante linha não constou nos slides
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutoComplete } from '../plugins/init_autocomplete';
 
 initMapbox();
+initAutoComplete();
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
