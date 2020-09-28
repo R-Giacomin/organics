@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container mt-5">
 
- <h1>Pedidos <%= @user.name.capitalize %> </h1>
-  <table class="table table-center">
+ <h2>Meus Pedido</h2>
+  <table class="table table-center mt-3">
     <tbody>
       <thead>
         <th>Item</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Unit measurement</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Unidade de medida</th>
         <th>Total</th>
       </thead>
       <% total = 0 %>
@@ -37,7 +37,7 @@
     </tr>
    </tfoot>
   </table>
-  <%= link_to 'Add more itens', products_path, class: "btn btn-warning" %>
-  <%= link_to 'Purchase', products_path, data: { confirm: 'Thank you, please wait for the order confirmation by the seller' }, class: "btn btn-warning" %>
+  <%= link_to 'Continuar comprando', products_path, class: "btn btn-warning" %>
+  <%= link_to 'Comprar', products_path, data: { confirm: 'Obrigada! Em até duas horas o vendedor encaminhará um email com a confirmação da compra e orientação de' }, class: "btn btn-warning" %>
 </div>
 

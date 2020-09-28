@@ -1,9 +1,10 @@
 
 <%= simple_form_for @product do |f| %>
-  <%= f.input :name, label: 'Nome do produto', placeholder: 'Banana Nanica' %>
-  <%= f.input :description, label: 'Descrição do produto', placeholder: 'Possui casca fina de cor amarelo-esverdeada, polpa doce e macia e aroma agradável. Na média 1kg de banana contém de 10 a 12 unidades da fruta.' %>
+
+  <%= f.input :name, label: 'Produto', placeholder: 'Banana Nanica' %>
+  <%= f.input :description, label: 'Descrição', placeholder: 'Possui casca fina de cor amarelo-esverdeada, polpa doce e macia e aroma agradável. Na média 1kg de banana contém de 10 a 12 unidades da fruta.' %>
   <%= f.input :price, label: 'Preço', placeholder: '6.90' %>
-  <%= f.input :quantity, label: 'Quantidade disponível', placeholder: '3' %>
+  <%#= f.input :quantity, label: 'Quantidade disponível', placeholder: '3' %>
   <%= f.input :unit_measurement, label: 'Unidade de medida', placeholder: 'Kg' %>
   <%= f.input :photo, as: :file, label: 'Foto do produto' %>
   <%= f.button :submit, class: 'btn btn-warning' %>
