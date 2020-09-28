@@ -1,5 +1,5 @@
-# require 'json'
-# require_relative 'seed_aux'
+require 'json'
+require_relative 'seed_aux'
 
 puts 'cleaning up database...'
 
@@ -10,12 +10,12 @@ Product.destroy_all
 User.destroy_all
 
 puts 'Seeding users...'
-feed_user(3)
+feed_user(6)
 
 puts 'Seeding products...'
 User.all.each do |usr|
   if usr.category === 'Produtor(a)'
-    feed_product(usr, (1..2).to_a.sample)
+    feed_product(usr, (1..3).to_a.sample)
   end
 end
 

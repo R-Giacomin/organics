@@ -1,3 +1,5 @@
+require 'uri'
+
 def feed_user(qde_users)
   file = './db/pessoa.json'
   pessoas = JSON.parse(File.open(file).read).sample(qde_users)
@@ -5,9 +7,6 @@ def feed_user(qde_users)
 
   pessoas.each do |pessoa|
     pessoa.transform_keys!(&:to_sym)
-    # geoObj = Geocoder.search(pessoa[:endereco])
-    # pessoa_lat = geoObj.first.data["lat"]
-    # pessoa_lon = geoObj.first.data["lon"]
     usr_h = {
       email: pessoa[:email], name: pessoa[:nome], category: pessoa[:category],
       address: pessoa[:endereco], password: '123456' }
@@ -21,8 +20,14 @@ def feed_product(usr, qdePrd)
   if usr.category === 'Produtor(a)'
     products.sample(qdePrd).each do |p|
       h_seed = p
+      url = p["url"]
+      h_seed.delete("url")
       h_seed[:user_id] = usr.id
       Product.create!(h_seed)
+      filename = File.basename(URI.parse(url).path)
+      file = URI.open(url)
+      prod = Product.last
+      prod.photo.attach(io:file, filename: filename)
     end
   end
 end
