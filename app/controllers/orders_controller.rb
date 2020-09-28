@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def strong_params
     params.require(:order).permit(:quantity)
 

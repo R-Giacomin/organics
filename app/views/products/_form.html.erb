@@ -1,10 +1,10 @@
 
 <%= simple_form_for @product do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :quantity %>
-  <%= f.input :unit_measurement %>
+  <%= f.input :name, label: 'Nome' %>
+  <%= f.input :description, label: 'Descrição' %>
+  <%= f.input :price, label: 'Preço' %>
+  <%= f.input :quantity, label: 'Quantidade' %>
+  <%= f.input :unit_measurement, label: 'Unidade de medida' %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: 'btn btn-warning' %>
 <% end %>
