@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row mt-2">
     <div class="col">
       <p id="notice"><%= notice %></p>
@@ -26,15 +26,15 @@
       </p>
       <p>
 
-        <strong>Preço:</strong> R$
-        <%= "#{(sprintf "%.2f", @product.price).to_s.gsub('.', ',')} #{@product.unit_measurement}" %>
-
+        <strong>Preço:</strong>
+        <%#= "#{(sprintf "%.2f", @product.price).to_s.gsub('.', ',')} #{@product.unit_measurement}" %>
+        <%= "#{price_mask_real(@product.price)}/#{@product.unit_measurement}" %>
       </p>
 
         <% if @product.user != current_user%>
           <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
 
-          <%= f.input :quantity, label: 'Quantidade desejada', placeholder: '1' %>
+          <%= f.input :quantity, label: "Quantidade desejada em #{@product.unit_measurement}" %>
 
           <%= link_to 'Voltar', products_path, class: "btn btn-warning" %>
           <%= f.submit 'Adicionar ao carrinho', class: "btn btn-warning" %>
@@ -50,13 +50,14 @@
 
     </div>
 
-    <div class="col">
+    <div class="col mt-3">
       <% img = @product.photo.attached? ? @product.photo.key : "" %>
-      <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag img, class: "rounded", height: 300, width: 400, crop: :fill %>
     </div>
   </div>
   <br>
   <div id="map"
+  <div id="map mt-4"
      style="width: 80%;margin: 0 auto; height: 500px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

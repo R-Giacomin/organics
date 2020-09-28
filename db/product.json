@@ -22,5 +22,21 @@
   {
     "name": "Alho", "description":"Legumes e verduras" ,
     "price":"15.50" ,"unit_measurement":"200 gramas", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978885/e1i37xiu4nl9qpbgs1kn86iayjk5.jpg"
+  },
+  {
+    "name": "Tomate", "description":"Tomate italiano" ,
+    "price":"15.50" ,"unit_measurement":"Kg", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978866/nz4fyiqw8z9keqb8svofsl71vhh5.jpg"
+  },
+  {
+    "name": "Abacate", "description":"Fruto rico em proteínas, fósforo, ferro, gorduras, fibras, potássio e diversas vitaminas." ,
+    "price":"10" ,"unit_measurement":"Kg", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978989/03xmjfnclu51kp2offgkp52ravg1.jpg"
+  },
+  {
+    "name": "Cebolinha", "description":"Ervas e Temperos." ,
+    "price":"4.50" ,"unit_measurement":"Maço", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978951/q6rlakxjp8n16oi3bca6hh40tc48.jpg"
+  },
+  {
+    "name": "Abacaxi", "description":"As quantidades de fibra, potássio e vitamina C presentes no abacaxi ajudam a diminuir os níveis de colesterol ruim no organismo." ,
+    "price":"10" ,"unit_measurement":"Unidade", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978822/ewbhcp6za9fh1e4h1r1jg8cuxz7n.jpg"
   }
 ]
