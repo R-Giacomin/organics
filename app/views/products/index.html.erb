@@ -27,10 +27,6 @@
           <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
           <div class="card-product-infos">
             <div>
-<!--               <% distance = @user&.geocoded? && product.user.geocoded? ? @user.distance_to(product.user.address).round(1) : nil %>
-              <% dist_txt = distance.nil? ? '' : " a #{distance.to_i.to_s.reverse
-                 .gsub(/...(?=.)/,'\&.').reverse},#{distance.to_s[-1]}km" %>
-              <h2><%= "#{product.name}#{dist_txt}" %></h2> -->
               <% dist_txt = @distances.key?(product.user.id) ? " a #{@distances[product.user.id]}km" : '' %>
               <h2><%= "#{product.name}#{dist_txt}" %></h2>
               <p><%= product.description.split('').first(20).join.strip + "..." %></p>
