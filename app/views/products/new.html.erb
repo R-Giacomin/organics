@@ -2,7 +2,7 @@
   <div class="edit-page">
     <h1>Cadastre seu Produto</h1>
   </div>
-  <%= render 'form', product: @product %>
+  <%= render 'form', product: @product, locals: { btn_name: 'Cadastrar Produto' }  %>
   <br>
   <div class="row justify-content-left">
     <div class="col-md-8">
