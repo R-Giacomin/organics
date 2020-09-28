@@ -29,6 +29,9 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo, as: :file, label: 'Foto do perfil'
+                hint: "leave it blank if you don't want to change it",
+                required: false %>
   </div>
 
   <div class="form-actions">
