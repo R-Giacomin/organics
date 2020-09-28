@@ -23,6 +23,7 @@
     <%= f.input :password_confirmation, label: 'Confirme sua Senha',
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file, label: 'Foto do perfil' %>
   </div>
 
   <div class="form-actions">
