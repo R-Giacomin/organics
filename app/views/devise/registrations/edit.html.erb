@@ -11,22 +11,22 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :name,
+    <%= f.input :name, label: 'Nome',
                 required: true,
                 input_html: { autocomplete: "name" }%>
-    <%= f.input :address,
+    <%= f.input :address, label: 'Endereço',
                 required: true,
                 input_html: { autocomplete: "address" }%>
-    <%= f.input :category, :collection => ['Produtor(a)','Comprador(a)'] %>   
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+    <%= f.input :category, label: 'Categoria', :collection => ['Produtor(a)','Comprador(a)'] %>
+    <%= f.input :password, label: 'Nova senha',
+                hint: "Deixe o campo em branco se não deseja alterá-lo",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+    <%= f.input :password_confirmation, label: 'Confirme sua senha',
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+    <%= f.input :current_password, label: 'Senha atual',
+                hint: "Precisamos de sua senha atual para confirmar as alterações",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :photo, as: :file, label: 'Foto do perfil',
@@ -34,14 +34,15 @@
                 required: false %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="form-actions btn btn-warning">
+    <%= f.button :submit, "Alterar" %>
   </div>
 <% end %>
 
-<%# <h3>Cancel my account</h3> %>
+<h3>Cancelar minha conta"</h3>
 
 <%#= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
 <%= link_to "Voltar", :back %>
 </div>
+
