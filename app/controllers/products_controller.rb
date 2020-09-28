@@ -9,11 +9,11 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
     @user = current_user
-    return unless @user.geocoded?
+    return unless @user&.geocoded?
 
     @distances = {}
     @products.each do |product|
-      next unless product.user.geocoded?
+      next unless product.user&.geocoded?
 
       producer = product.user
       @distances[producer.id] = num_formated(producer.distance_to(@user.address), 1)

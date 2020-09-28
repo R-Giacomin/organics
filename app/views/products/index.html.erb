@@ -27,7 +27,7 @@
           <%= cl_image_tag img, height: 300, width: 400, crop: :fill %>
           <div class="card-product-infos">
             <div>
-              <% dist_txt = @distances.key?(product.user.id) ? " a #{@distances[product.user.id]}km" : '' %>
+              <% dist_txt = @distances&.key?(product.user.id) ? " a #{@distances[product.user.id]}km" : '' %>
               <h2><%= "#{product.name}#{dist_txt}" %></h2>
               <p><%= product.description.split('').first(20).join.strip + "..." %></p>
             </div>
