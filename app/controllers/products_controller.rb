@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
       next unless user&.geocoded?
 
       { lat: user.latitude, lng: user.longitude,
-        infoWindow: render_to_string(partial: "products/info_window", locals: { user: user }) }
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }) }
     end
     @order = Order.new
   end
