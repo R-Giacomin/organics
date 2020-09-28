@@ -8,20 +8,15 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-    @markers = @products.map do |product|
-      next unless product.user.geocoded?
+    @user = current_user
+    return unless @user&.geocoded?
+
+    @distances = {}
+    @products.each do |product|
+      next unless product.user&.geocoded?
 
       producer = product.user
-      {
-        lat: producer.latitude,
-        lng: producer.longitude
-      }
-    end
-    @user = current_user
-    @markers = @products.map do |product|
-      next unless product.user.geocoded?
-
-      { lat: product.user.latitude, lng: product.user.longitude }
+      @distances[producer.id] = num_formated(producer.distance_to(@user.address), 1)
     end
   end
 
@@ -67,19 +62,19 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @product = Product.find(params[:id])
-    @markers = [current_user, @product.user].map do |user|
+    @markers = [@user, @product.user].map do |user|
       next unless user&.geocoded?
 
-      {
-        lat: user.latitude,
-        lng: user.longitude
-      }
+      { lat: user.latitude, lng: user.longitude,
+        infoWindow: render_to_string(partial: "products/info_window", locals: { user: user }) }
     end
     @order = Order.new
   end
 
   private
+
   def set_product
     @product = Product.find(params[:id])
   end
@@ -90,5 +85,12 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :price, :price.to_s, :quantity, :search, :photo, :unit_measurement)
+  end
+
+  def num_formated(num, precision)
+    num_rounded = num.round(precision)
+    int_txt = num_rounded.to_i.to_s.reverse.gsub(/...(?=.)/, '\&.').reverse
+    frac_txt = precision.positive? ? ",#{num_rounded.to_s[-1 - (precision - 1)]}" : ""
+    "#{int_txt}#{frac_txt}"
   end
 end
