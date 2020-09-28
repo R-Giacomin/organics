@@ -1,4 +1,4 @@
-
+<% btn_name = locals[:btn_name] %>
 <%= simple_form_for @product do |f| %>
 
   <%= f.input :name, label: 'Produto', placeholder: 'Banana Nanica' %>
@@ -7,5 +7,5 @@
   <%#= f.input :quantity, label: 'Quantidade disponível', placeholder: '3' %>
   <%= f.input :unit_measurement, label: 'Unidade de medida', placeholder: 'Kg' %>
   <%= f.input :photo, as: :file, label: 'Foto do produto' %>
-  <%= f.button :submit, class: 'btn btn-warning' %>
+  <%= f.button :submit, "#{btn_name}", class: 'btn btn-warning' %>
 <% end %>
