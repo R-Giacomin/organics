@@ -31,7 +31,7 @@
               <h2><%= "#{product.name}#{dist_txt}" %></h2>
               <p><%= product.description.split('').first(20).join.strip + "..." %></p>
             </div>
-            <h2 id="card-product-pricing"><small>R$ </small><%= (sprintf "%.2f", product.price).to_s.gsub('.', ',') %></h2>
+            <h2 id="card-product-pricing"><small>R$ </small><%= (sprintf "%.2f", product.price).to_s.gsub('.', ',') %><small> / <%= product.unit_measurement %> </small> </h2>
             <!--  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
           </div>
         </div>
