@@ -34,7 +34,7 @@
         <% if @product.user != current_user%>
           <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |f| %>
 
-          <%= f.input :quantity, label: 'Quantidade desejada', placeholder: '1' %>
+          <%= f.input :quantity, label: "Quantidade desejada em #{@product.unit_measurement}" %>
 
           <%= link_to 'Voltar', products_path, class: "btn btn-warning" %>
           <%= f.submit 'Adicionar ao carrinho', class: "btn btn-warning" %>
