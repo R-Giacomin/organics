@@ -1,5 +1,5 @@
-require 'json'
-require_relative 'seed_aux'
+# require 'json'
+# require_relative 'seed_aux'
 
 puts 'cleaning up database...'
 
@@ -10,31 +10,32 @@ Product.destroy_all
 User.destroy_all
 
 puts 'Seeding users...'
-feed_user(20)
+feed_user(3)
 
 puts 'Seeding products...'
 User.all.each do |usr|
   if usr.category === 'Produtor(a)'
-    feed_product(usr, (1..3).to_a.sample)
+    feed_product(usr, (1..2).to_a.sample)
   end
 end
 
-puts 'Seeding carts...'
-User.all.each do |usr|
-  feed_cart(usr) if usr.category === 'Comprador(a)'
-end
+# puts 'Seeding carts...'
+# User.all.each do |usr|
+#   feed_cart(usr) if usr.category === 'Comprador(a)'
+# end
 
 puts 'Seeding orders...'
 User.all.each do |usr|
   feed_cart(usr)
 end
 
-puts 'Seeding cart_products...'
-Cart.all.each do |cart|
-  Product.all.each do |product|
-    feed_cart_product(cart, product)
-  end
-end
+# puts 'Seeding cart_products...'
+# Cart.all.each do |cart|
+#   Product.all.each do |product|
+#     feed_cart_product(cart, product)
+#   end
+# end
+
 
 Order.create(user: User.first, product: Product.first)
 

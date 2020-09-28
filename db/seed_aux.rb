@@ -1,7 +1,7 @@
 def feed_user(qde_users)
   file = './db/pessoa.json'
   pessoas = JSON.parse(File.open(file).read).sample(qde_users)
-  category = ['Comprador(a)', 'Produtor(a)', 'Comprador(a)', 'Comprador(a)']
+  # category = ['Comprador(a)', 'Produtor(a)', 'Comprador(a)', 'Comprador(a)']
 
   pessoas.each do |pessoa|
     pessoa.transform_keys!(&:to_sym)
@@ -9,7 +9,7 @@ def feed_user(qde_users)
     # pessoa_lat = geoObj.first.data["lat"]
     # pessoa_lon = geoObj.first.data["lon"]
     usr_h = {
-      email: pessoa[:email], name: pessoa[:nome], category: category.sample,
+      email: pessoa[:email], name: pessoa[:nome], category: pessoa[:category],
       address: pessoa[:endereco], password: '123456' }
     User.create!(usr_h)
   end

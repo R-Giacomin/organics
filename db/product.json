@@ -1,14 +1,26 @@
 [
   {
     "name": "Morango", "description":"Morangos irresistíveis e sem veneno da fazenda Fresamor",
-    "price":"8,50" ,"quantity":20 , "unit_measurement":"bandeja 250g"
+    "price":"8.50" ,"unit_measurement":"Bandeja", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600979311/ep0quh2x4q79628r51sudt3urfoq.jpg"
   },
   {
-    "name": "Kiwi", "description":"Limão colhido no sítio do moinho, com alta concentração de vitamina C" ,
-    "price":"7,80" , "quantity":10, "unit_measurement":"pacote 500g"
+    "name": "Kiwi", "description":"Frutas selecionadas" ,
+    "price":"7.80" ,"unit_measurement":"500g", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600979535/6xqd6fdfic5vsfw44h4v85k9994h.jpg"
   },
   {
     "name": "Banana Prata", "description":"Potássio garantido para prevenção de cãibras durante a realização de exercícios físicos" ,
-    "price":"7,80" , "quantity":20 , "unit_measurement":"pacote 500g"
+    "price":"7.80" , "unit_measurement":"Kg", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600979671/n9pr95du6szmikwgqc8j9utzy0gq.jpg"
+  },
+  {
+    "name": "Melancia", "description":"Muito saborosa" ,
+    "price":"10" ,"unit_measurement":"Unidade", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978675/rw0cu2ifvun1f58dvjl5r4ypcmp0.jpg"
+  },
+  {
+    "name": "Abrobinha", "description":"Legumes e verduras" ,
+    "price":"7" ,"unit_measurement":"Kg", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978815/kf0e05a74ksfit6b7j4g8hwstvrg.jpg"
+  },
+  {
+    "name": "Alho", "description":"Legumes e verduras" ,
+    "price":"15.50" ,"unit_measurement":"200 gramas", "url": "https://res.cloudinary.com/da6ufv8ct/image/upload/v1600978885/e1i37xiu4nl9qpbgs1kn86iayjk5.jpg"
   }
 ]
