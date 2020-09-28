@@ -62,17 +62,15 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @product = Product.find(params[:id])
-    @markers = [current_user, @product.user].map do |user|
+    @markers = [@user, @product.user].map do |user|
       next unless user&.geocoded?
 
-      {
-        lat: user.latitude,
-        lng: user.longitude
-      }
+      { lat: user.latitude, lng: user.longitude,
+        infoWindow: render_to_string(partial: "products/info_window", locals: { user: user, cola: "gás" }) }
     end
     @order = Order.new
-    @user = current_user
   end
 
   private
