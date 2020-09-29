@@ -12,6 +12,8 @@ class OrdersController < ApplicationController
     @order.user = @user
     if @order.save
       redirect_to orders_path
+    else
+      render 'products/show'
     end
   end
 

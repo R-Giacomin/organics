@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   validates :address, :name, :category, :email, presence: true
   validates :name, :address, length: { minimum: 8 }
+
 end
