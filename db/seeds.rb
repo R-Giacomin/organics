@@ -14,7 +14,7 @@ feed_user(6)
 
 puts 'Seeding products...'
 User.all.each do |usr|
-  if usr.category === 'Produtor(a)'
+  if usr.category.downcase === 'produtor(a)'
     feed_product(usr, (1..3).to_a.sample)
   end
 end

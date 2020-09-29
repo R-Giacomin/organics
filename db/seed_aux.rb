@@ -3,7 +3,7 @@ require 'uri'
 def feed_user(qde_users)
   file = './db/pessoa.json'
   pessoas = JSON.parse(File.open(file).read).sample(qde_users)
-  # category = ['Comprador(a)', 'Produtor(a)', 'Comprador(a)', 'Comprador(a)']
+  category = ['Comprador(a)', 'Produtor(a)', 'Comprador(a)']
 
   pessoas.each do |pessoa|
     pessoa.transform_keys!(&:to_sym)
@@ -19,9 +19,9 @@ def feed_product(usr, qdePrd)
   products = JSON.parse(File.open(file).read)
   if usr.category === 'Produtor(a)'
     products.sample(qdePrd).each do |p|
-      h_seed = p
-      url = p["url"]
-      h_seed.delete("url")
+      h_seed = p.transform_keys!(&:to_sym)
+      url = p[:url]
+      h_seed.delete(:url)
       h_seed[:user_id] = usr.id
       Product.create!(h_seed)
       filename = File.basename(URI.parse(url).path)
