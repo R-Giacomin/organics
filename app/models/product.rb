@@ -3,12 +3,4 @@ class Product < ApplicationRecord
   has_many :cart_products
   has_many :orders
   has_one_attached :photo
-
-  def self.search(search)
-    if search
-      @products = Product.find_by(name: search)
-    else
-      @products = Product.all
-    end
-  end
 end
